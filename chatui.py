@@ -1,18 +1,16 @@
 import spinner
 from ollama import chat
 
-
-prompt = str(input("Enter the question: "))
+question = str(input("Enter the question: "))
 
 spinner1 = spinner.Spinner("Fetching response")
 spinner1.start()
 
-stream = chat(
+llm_output = chat(
     model='gemma3:1b',
-    messages=[{'role': 'user', 'content': prompt}],
+    messages=[{'role': 'user', 'content': question}],
     stream=True,
 )
 
+
 spinner1.stop()
-for chunk in stream:
-    print(chunk['message']['content'], end='', flush=True)

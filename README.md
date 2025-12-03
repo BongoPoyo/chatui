@@ -1,2 +1,2 @@
 # chatui
-A TUI wrapper for chatgpt.
+A TUI wrapper for ollama gemma3:1b.
